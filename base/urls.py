@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import PerfilView, CadView, LoginView, PedidosView, BaseView, CarView, EuroView, FavView, RetroView, SacView, SelecView, TesteView
+from .views import PerfilView, CadView, LoginView, PedidosView, BaseView, CarView, EuroView, FavView, RetroView, SacView, SelecView, TesteView, register
 
 urlpatterns = [
     path('cadastro/', CadView.as_view()),
@@ -15,5 +15,6 @@ urlpatterns = [
     path('sac/', SacView.as_view()),
     path('selecoes/', SelecView.as_view(), name = 'selec'),
     path('teste/', TesteView.as_view(), name = 'teste'),
+    path('cadastro/', register, name = 'cadastro'),
 
 ]

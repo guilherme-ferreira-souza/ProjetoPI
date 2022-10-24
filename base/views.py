@@ -1,6 +1,14 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from http.client import HTTPResponse
 from django.views.generic import TemplateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+from django.shortcuts import render
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate
+from django.contrib.auth import login as login_django
+from django.contrib.auth.decorators import login_required
+
+from .models import User
 
 # Create your views here.
 '''
@@ -17,9 +25,6 @@ def view_about(request):
 '''def view_home(request):
     return render (request, 'home.html')'''
   
-
-class CadView(TemplateView):
-    template_name = 'cadastro.html'
 
 class LoginView(TemplateView):
     template_name = 'base/pages/login.html'
@@ -57,3 +62,19 @@ class SelecView(TemplateView):
 class TesteView(TemplateView):
     template_name = 'teste.html'
     
+def register(request):
+    if request.method == 'GET':
+        return render(request, "base/pages/cadastro.html")
+    
+    else:
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        
+        user = User.objects.filter(username = username).first()   
+        if user:
+            return render(request, "core/pages/permission.html")
+        
+        user = User.objects.create_user(username=username, email=email, password=password) 
+        user.save()
+        return render(request, "base/pages/home.html")
