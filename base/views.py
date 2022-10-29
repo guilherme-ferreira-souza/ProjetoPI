@@ -1,3 +1,4 @@
+import email
 from http.client import HTTPResponse
 from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -62,19 +63,25 @@ class SelecView(TemplateView):
 class TesteView(TemplateView):
     template_name = 'teste.html'
     
-def register(request):
-    if request.method == 'GET':
-        return render(request, "base/pages/cadastro.html")
+#def register(request):
+ #   if request.method == 'GET':
+  #      return render(request, "base/pages/cadastro.html")
     
-    else:
-        username = request.POST.get('username')
-        email = request.POST.get('email')
-        password = request.POST.get('password')
+   # else:
+    #    username = request.POST.get('username')
+     #   email = request.POST.get('email')
+      #  password = request.POST.get('password')
         
-        user = User.objects.filter(username = username).first()   
-        if user:
-            return render(request, "core/pages/permission.html")
+       # user = User.objects.filter(username = username).first()   
+        #if user:
+         #   return render(request, "core/pages/permission.html")
         
-        user = User.objects.create_user(username=username, email=email, password=password) 
-        user.save()
-        return render(request, "base/pages/home.html")
+        #user = User.objects.create_user(username=username, email=email, password=password) 
+        #user.save()
+        #return render(request, "base/pages/home.html")
+
+class UserCreate(CreateView):
+    model = User
+    fields = ['email','password']
+    template_name = 'base/cadastro.html'
+    success_url = reverse_lazy('home.html')
