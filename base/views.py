@@ -17,5 +17,5 @@ class IndexView(TemplateView):
 class BaseView(TemplateView):
     template_name = 'teste.html'
 
-class SobreView(TemplateView):
-    template_name = 'base/pages/sobre.html'
+class CadsView(TemplateView):
+    template_name = 'base/pages/cadastro.html'
