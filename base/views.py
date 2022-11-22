@@ -19,3 +19,5 @@ class BaseView(TemplateView):
 
 class CadsView(TemplateView):
     template_name = 'base/pages/cadastro.html'
+
+

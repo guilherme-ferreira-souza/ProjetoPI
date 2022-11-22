@@ -1,0 +1,31 @@
+{% include 'base/componentes/header.html' %}
+{% include 'base/componentes/nav.html' %}
+
+{% load crispy_forms_tags %}
+
+<main>
+<br>
+<br>
+<br>
+<br>
+<br>
+  <h1 class="d-flex justify-content-center">CADASTRO</h1>
+<br>
+<br>
+<br>
+<div class="d-flex justify-content-center">
+  <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+    {% csrf_token %}
+    {{ form | crispy }}
+    {% if redirect_field_value %}
+    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    {% endif %}
+    <br>
+    <div class="d-flex justify-content-center" >
+      <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </div>
+  </form>
+</div>
+</main>
+
+

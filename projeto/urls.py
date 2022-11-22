@@ -26,7 +26,8 @@ def my_about(request):
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('base.urls'))
+    path('', include('base.urls')),
+    path('account/', include('allauth.urls')),
     #para onde vai, qual a função, qual o nome
     #path('home/',my_view, name = 'home'),
     #path('about/', my_about),

@@ -40,6 +40,10 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
     'bootstrap5',
     'fontawesomefree',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'crispy_forms',
     
 ]
 
@@ -49,6 +53,7 @@ MY_APSS = [
 
 INSTALLED_APPS = DJANGO_APPS + MY_APSS
 
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -91,6 +96,10 @@ DATABASES = {
     }
 }
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -137,3 +146,15 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_LOGOUT_ON_GET = True
+ACCOUNT_SESSION_REMEMBER = False
+ACCOUNT_CONFIRM_EMAIL_ON_GET =False
+ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = None
+ACCOUNT_SIGNUP_REDIRECT_URL = '?next=/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
