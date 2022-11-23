@@ -20,4 +20,19 @@ class BaseView(TemplateView):
 class CadsView(TemplateView):
     template_name = 'base/pages/cadastro.html'
 
+class SerieAView(TemplateView):
+    template_name = 'base/pages/SerieA.html'
+
+class SelecoesView(TemplateView):
+    template_name = 'base/pages/selecoes.html'
+
+class PremierView(TemplateView):
+    template_name = 'base/pages/PL.html'
+
+class BundesligaView(TemplateView):
+    template_name = 'base/pages/bundesliga.html'
+
+class logView(TemplateView):
+    template_name = 'base/pages/pag log.html'
+
 
