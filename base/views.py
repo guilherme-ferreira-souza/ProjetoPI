@@ -35,4 +35,14 @@ class BundesligaView(TemplateView):
 class logView(TemplateView):
     template_name = 'base/pages/pag log.html'
 
+class TesteBund(TemplateView):
+    template_name = 'testebund2.html'
 
+class TestePL(TemplateView):
+    template_name = 'testePL2.html'
+
+class TesteSA(TemplateView):
+    template_name = 'testeSA2.html'
+
+class TesteSel(TemplateView):
+    template_name = 'testesel2.html'
