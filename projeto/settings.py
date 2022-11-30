@@ -49,6 +49,7 @@ DJANGO_APPS = [
 
 MY_APSS = [
     'base',
+    'products',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + MY_APSS
