@@ -46,3 +46,4 @@ class TesteSA(TemplateView):
 
 class TesteSel(TemplateView):
     template_name = 'testesel2.html'
+
